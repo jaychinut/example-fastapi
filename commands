@@ -8,5 +8,16 @@ uvicorn app.main:app --host=0.0.0.0 --port=${PORT:-5000}
 #install all dependencies
 pip install -r requirements.txt
 
+#deploy to heroku
+heroku create fastapi-jayson
+git push heroku main
+heroku addons:create heroku-postgresql:mini
+heroku ps:restart
+#go to app settings and configure all Config Vars with environment variables from .env and postgres db deployed on heroku
+
+#destroy app from heroku
+heroku apps:destroy fastapi-jayson
+#heroku addons:destroy heroku-postgresql:mini
+
 #alembic database migration
 heroku run "alembic upgrade head"
