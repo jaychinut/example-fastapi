@@ -21,3 +21,7 @@ heroku apps:destroy fastapi-jayson
 
 #alembic database migration
 heroku run "alembic upgrade head"
+
+#pytest unit tests
+pytest -s -v
+pytest -s -v --disable-warnings ~/Documents/python/fastapi/tests/test_users.py
