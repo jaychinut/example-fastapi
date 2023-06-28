@@ -1,5 +1,5 @@
 #Launch virtual python environment
-source /Users/jayson/Documents/python/fastapi/venv/bin/activate
+source /Users/jayson.chin/Documents/python/fastapi/venv/bin/activate
 
 #Launch Uvicorn
 uvicorn app.main:app --reload --port 7500
