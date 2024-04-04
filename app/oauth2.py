@@ -26,17 +26,15 @@ def create_access_token(data: dict):
 
     return encoded_jwt
 
-
-
-def verify_access_token(token: str, credentials_exception):
-
+def verify_access_token(token: str, credentials_exception: HTTPException):
     try:
-
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        id: str = payload.get("user_id")
-        if id is None:
+        user_id = payload.get("user_id")
+        if user_id is None:
             raise credentials_exception
-        token_data = schemas.TokenData(id=id)
+        # Convert user_id to string
+        id_str = str(user_id)
+        token_data = schemas.TokenData(id=id_str)
     except JWTError:
         raise credentials_exception
     
