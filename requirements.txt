@@ -24,7 +24,7 @@ psycopg2-binary==2.9.9
 pyasn1==0.6.0
 pydantic==2.8.0
 pydantic-settings==2.2.1
-pydantic_core==2.20.0
+pydantic_core==2.21.0
 pytest==8.2.2
 python-dotenv==1.0.1
 python-jose==3.3.0
